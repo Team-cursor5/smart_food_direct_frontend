@@ -53,6 +53,12 @@ export default function HomePage() {
                 Home
               </Link>
               <Link 
+                href="/giveaways" 
+                className="text-gray-700 hover:text-emerald-600 px-3 py-2 rounded-lg text-sm font-medium transition-all duration-200 hover:bg-emerald-50"
+              >
+                Giveaways
+              </Link>
+              <Link 
                 href="/register" 
                 className="text-gray-700 hover:text-emerald-600 px-3 py-2 rounded-lg text-sm font-medium transition-all duration-200 hover:bg-emerald-50"
               >
@@ -233,6 +239,11 @@ export default function HomePage() {
                 <li>
                   <Link href="/" className="text-gray-400 hover:text-white transition-colors duration-200">
                     Home
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/giveaways" className="text-gray-400 hover:text-white transition-colors duration-200">
+                    Giveaways
                   </Link>
                 </li>
                 <li>
