@@ -261,10 +261,10 @@ export default function HomePage() {
                   <span className="block">Email: hello@foodbridge.com</span>
                 </li>
                 <li className="text-gray-400">
-                  <span className="block">Phone: (555) 123-4567</span>
+                  <span className="block">Phone: +251923471699</span>
                 </li>
                 <li className="text-gray-400">
-                  <span className="block">Address: 123 Community St</span>
+                  <span className="block">Address: Addis Ababa, Ethiopia</span>
                 </li>
               </ul>
             </div>
