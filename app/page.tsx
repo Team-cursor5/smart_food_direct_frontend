@@ -72,6 +72,22 @@ export default function HomePage() {
               </Link>
             </div>
 
+            {/* Auth Buttons */}
+            <div className="hidden md:flex items-center space-x-4">
+              <Link 
+                href="/signin"
+                className="text-emerald-600 hover:text-emerald-700 font-medium px-4 py-2 rounded-lg transition-all duration-200 hover:bg-emerald-50"
+              >
+                Sign In
+              </Link>
+              <Link 
+                href="/signup"
+                className="bg-gradient-to-r from-emerald-500 to-emerald-600 hover:from-emerald-600 hover:to-emerald-700 text-white font-medium px-4 py-2 rounded-lg shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-200"
+              >
+                Sign Up
+              </Link>
+            </div>
+
             {/* Mobile menu button */}
             <div className="md:hidden">
               <button className="text-gray-700 hover:text-emerald-600 focus:outline-none focus:text-emerald-600 p-2 rounded-lg hover:bg-emerald-50 transition-all duration-200">
@@ -254,6 +270,16 @@ export default function HomePage() {
                 <li>
                   <Link href="/map" className="text-gray-400 hover:text-white transition-colors duration-200">
                     Map
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/signin" className="text-gray-400 hover:text-white transition-colors duration-200">
+                    Sign In
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/signup" className="text-gray-400 hover:text-white transition-colors duration-200">
+                    Sign Up
                   </Link>
                 </li>
                 <li>

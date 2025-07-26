@@ -353,21 +353,30 @@ export default function FoodGiveawaysPage() {
         )}
       </div>
 
-      {/* Bottom CTA */}
-      <div className="bg-gradient-to-r from-orange-500 to-green-500 py-16">
+      {/* Start Sharing Section */}
+      <div className="bg-gradient-to-r from-emerald-500 to-blue-500 py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
-            Have Food to Share?
+            Start sharing food today
           </h2>
-          <p className="text-xl text-orange-100 mb-8 max-w-2xl mx-auto">
-            Join our community of generous food donors and help reduce waste while supporting those in need.
+          <p className="text-xl text-emerald-100 mb-8 max-w-2xl mx-auto">
+            Join our community and help reduce food waste while supporting those in need. 
+            Create an account to start sharing or sign in if you already have one.
           </p>
-          <Link
-            href="/register"
-            className="inline-block bg-white text-orange-600 font-semibold py-4 px-8 rounded-xl shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300"
-          >
-            Start Sharing Food Today
-          </Link>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+            <Link
+              href="/signup"
+              className="bg-white text-emerald-600 font-semibold py-4 px-8 rounded-xl shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300"
+            >
+              Create an account
+            </Link>
+            <Link
+              href="/signin"
+              className="bg-transparent border-2 border-white text-white font-semibold py-4 px-8 rounded-xl hover:bg-white hover:text-emerald-600 transform hover:-translate-y-1 transition-all duration-300"
+            >
+              Sign in if you already have an account
+            </Link>
+          </div>
         </div>
       </div>
     </div>
