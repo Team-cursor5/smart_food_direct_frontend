@@ -1,7 +1,9 @@
 'use client';
 
 import Link from 'next/link';
+import { useRouter } from 'next/navigation';
 import { useState } from 'react';
+import { registerUser } from '../api-client';
 
 type UserType = 'Individual' | 'Business' | 'Charity';
 
@@ -48,6 +50,9 @@ export default function SignUpPage() {
     businessLicense: '',
     category: ''
   });
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState('');
+  const router = useRouter();
 
   const handleInputChange = (field: keyof FormData, value: string) => {
     setFormData(prev => ({
@@ -56,10 +61,38 @@ export default function SignUpPage() {
     }));
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    console.log('Form submitted:', { userType: selectedType, ...formData });
-    // Handle form submission here
+    setLoading(true);
+    setError('');
+    try {
+      let payload: any = {
+        name: formData.name,
+        email: formData.email,
+        password: formData.password,
+        userType: selectedType,
+      };
+      if (selectedType === 'Business') {
+        payload = {
+          ...payload,
+          location: formData.location,
+          businessLicense: formData.businessLicense,
+          category: formData.category,
+        };
+      } else if (selectedType === 'Charity') {
+        payload = {
+          ...payload,
+          location: formData.location,
+          category: formData.category,
+        };
+      }
+      await registerUser(payload);
+      router.push('/dashboard');
+    } catch (err: any) {
+      setError(err.message || 'Registration failed');
+    } finally {
+      setLoading(false);
+    }
   };
 
   const userTypeConfig: Record<UserType, {
@@ -164,6 +197,7 @@ export default function SignUpPage() {
           </div>
 
           <form onSubmit={handleSubmit} className="space-y-6">
+            {error && <div className="text-red-500 text-sm">{error}</div>}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               {currentConfig.fields.map((field) => (
                 <div
@@ -232,8 +266,9 @@ export default function SignUpPage() {
             <button
               type="submit"
               className="w-full bg-gradient-to-r from-emerald-500 to-blue-600 hover:from-emerald-600 hover:to-blue-700 text-white font-semibold py-4 px-6 rounded-xl shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300 text-lg"
+              disabled={loading}
             >
-              Create Account
+              {loading ? 'Creating Account...' : 'Create Account'}
             </button>
           </form>
 
